@@ -1,9 +1,12 @@
+#ifndef employee_h
+#define employee_h
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include "date.h"
 using namespace std;
 
+//Base class
 class employee
 {
     private:
@@ -18,7 +21,7 @@ class employee
 
     public:
 
-    
+    //Mutators
     void setName(string newName);
     void setID(string newID);
     void setAge(string newAge);
@@ -26,11 +29,11 @@ class employee
     void setGender(string newGender);
     void setJob(string newJob);
     void setSalary(string newSalary);
-    void setDate(date newDate);
+    void setDate(string,string,string);
     void printInfo();
     void setEmployeeInfo();
 
-
+    //Accessors
     string getName()const;
     string getID()const;
     string getAge()const;
@@ -40,7 +43,10 @@ class employee
     string getSalary()const;
     string getDate()const;
 
-    employee(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, date newDate);
+    //Default constructor, and constructor that takes arguments
+    employee(string, string, string, string, string, string, string, string,string,string);
     employee();
 };
-void testFunction(employee person);
+//Prints function with default constructor, allows for user to fill it out and then prints.
+void testFunction(employee& person);
+#endif

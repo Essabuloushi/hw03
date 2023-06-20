@@ -1,25 +1,37 @@
+#ifndef softwareArch_h
+#define softwareArch_h
+#include <iostream>
+#include <string>
 #include "employee.h"
-
-class softwareArch : public employee
+using namespace std;
+//Softwareach inherits employee
+class softwareArch : public employee        
 {
     private:
-    string departNum;
+    string departNum;       //Added variables
     string superVisor;
     float percentInc;
     int yearsOfExp;
 
     public:
-    void setYearsOfExp(int newYears);
+    // Mutators
+    void setYearsOfExp(int newYears);   
     void setDepartNum(string newDepart);
     void setSuperVisor(string newSuperVisor);
     void setPercInc(float newPercInc);
+
+    // Accessors
     string getDepartNum()const;
     string getSuperVisor()const;
     float getPercInc()const;
     int getYearsOfExp()const;
     void printInfo();
     void setEmployeeInfo();
+    //Constructors, includes defualt constructor and preloaded constructor
     softwareArch();
-    softwareArch(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, date newDate,string newDepart,string newSuperVisor, float newPayInc,int newYears);
+    softwareArch(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, string newMonth,string newDay,string newYear,string newDepart,string newSuperVisor, float newPayInc,int newYears);
 };
-void testFunction(softwareArch Person);
+void testSoft(softwareArch& Person);
+//Prints function with default constructor, allows for user to fill it out and then prints.
+
+#endif

@@ -1,4 +1,8 @@
+// #ifndef programmer_h
+// #define programmer_h
 #include "programmer.h"
+
+
 
 string programmer::getDepartNum()const
 {
@@ -41,28 +45,26 @@ void programmer::setjIdent(char newjIdent)
 {
     jIdent = newjIdent;
 }
-bool programmer::checkLangC()
+void programmer::checkLangC()
 {
     if (getcIdent() == 'T' || getcIdent() == 't')
     {
         cout << "Programmer knows C++." << endl;
-        return true;
     }
     else 
     cout << "Programmer does not know c++." << endl;
-    return false;
 }
-bool programmer::checkLangJ()
+void programmer::checkLangJ()
 {
     
     if (getjIdent() == 'T' || getjIdent() == 't')
     {
         cout << "Programmer knows Java." << endl;
-        return true;
+        return;
     }
     else 
     cout << "Programmer does not know java." << endl;
-    return false;
+    return;
 }
 void programmer::setEmployeeInfo()
 {
@@ -84,10 +86,12 @@ void programmer::setEmployeeInfo()
     cout << "\nInput Employee Percent Pay increase :%";
     cin >> newPercInc;
     setPercInc(newPercInc);
+    cin.ignore(1000,'\n');
 
     cout << "\nInput T or F if Employee knows C++:";
     cin.get(newcIdent);
     setcIdent(newcIdent);
+    cin.ignore(1000,'\n');
 
     cout << "\nInput T of F if Employee knows Java";
     cin.get(newjIdent);
@@ -97,12 +101,16 @@ void programmer::setEmployeeInfo()
 }
 void programmer::printInfo()
 {
-    employee::printInfo;
-    cout << "Employee Department Number: " << getDepartNum << endl;
-    cout << "Employee Supervisor: " << getSuperVisor << endl;
-    cout << "Employee Percent Pay Increase: %" << getPercInc << endl;
-    cout << "Employee Knowledge of C++ :" << checkLangC;
-    cout << "Employee Knowledge of Java: " << checkLangJ;
+    employee::printInfo();
+    cout << "Employee Department Number: " << getDepartNum() << endl;
+    cout << "Employee Supervisor: " << getSuperVisor() << endl;
+    cout << "Employee Percent Pay Increase: " << getPercInc() << "%" << endl;
+    cout << "Employee Knowledge of C++ :";
+    checkLangC();
+    cout << endl;
+    cout << "Employee Knowledge of Java: ";
+    checkLangJ();
+    cout << endl;
 
 }
 programmer::programmer()
@@ -114,16 +122,16 @@ programmer::programmer()
     cIdent = 'F';
     jIdent = 'F';
 }
-programmer::programmer(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, date newDate,string newDepart,string newSuperVisor, float newPayInc,char newcIdent, char newJIdent)
+programmer::programmer(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, string newMonth, string newDay, string newYear,string newDepart,string newSuperVisor, float newPayInc,char newcIdent, char newJIdent)
+:employee(newName,newID,newAge,newPhoneNum,newGender,newJob,newSalary,newMonth,newDay,newYear)
 {
-    employee(newName,newID,newAge,newPhoneNum,newGender,newJob,newSalary,newDate);
     departNum = newDepart;
     superVisor = newSuperVisor;
     percentInc = newPayInc;
     cIdent = newcIdent;
     jIdent = newJIdent;
 }
-void testFunction(programmer Person)
+void testProgrammer(programmer& Person)
 {
     cout << "\nThis function is going to test the before and after of all member functions." << endl;
     cout << "**************************************************" << endl;
@@ -138,3 +146,4 @@ void testFunction(programmer Person)
     cout << endl;
 
 }
+// #endif

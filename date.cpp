@@ -1,4 +1,7 @@
+#ifndef date_h
+#define date_h
 #include "date.h"
+
 
 void date::setDay(string newDay)
 {
@@ -66,3 +69,11 @@ void date::printHireDate()
 {
     cout << getMonth() << "/" << getDay() << "/" << getYear() << endl;
 }
+date::date(string newMonth, string newDay,string newYear)
+{
+    month = newMonth;
+    day = newDay;
+    year = newYear;
+   
+}
+#endif

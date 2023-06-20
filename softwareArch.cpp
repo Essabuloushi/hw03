@@ -1,4 +1,7 @@
+
 #include "softwareArch.h"
+#include "employee.h"
+
 string softwareArch::getDepartNum()const
 {
     return departNum;
@@ -38,7 +41,7 @@ void softwareArch::setEmployeeInfo()
     float newPercInc;
     int newYears;
 
-    employee::setEmployeeInfo;
+    employee::setEmployeeInfo();
     cout << "Input Employee Department Number: ";
     getline(cin,newDepartNum);
     setDepartNum(newDepartNum);
@@ -58,11 +61,11 @@ void softwareArch::setEmployeeInfo()
 }
 void softwareArch::printInfo()
 {
-    employee::printInfo;
-    cout << "Employee Department Number: " << getDepartNum << endl;
-    cout << "Employee Supervisor: " << getSuperVisor << endl;
-    cout << "Employee Percent Pay Increase: %" << getPercInc << endl;
-    cout << "Employee years of Experience: " << getYearsOfExp << endl;
+    employee::printInfo();
+    cout << "Employee Department Number: " << getDepartNum() << endl;
+    cout << "Employee Supervisor: " << getSuperVisor() << endl;
+    cout << "Employee Percent Pay Increase: %" << getPercInc() << endl;
+    cout << "Employee years of Experience: " << getYearsOfExp() << endl;
 }
 softwareArch::softwareArch()
 {
@@ -72,15 +75,16 @@ softwareArch::softwareArch()
     percentInc = 0.0;
     yearsOfExp = 0;
 }
-softwareArch::softwareArch(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, date newDate,string newDepart,string newSuperVisor, float newPayInc,int newYears)
+softwareArch::softwareArch(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, string newMonth,string newDay, string newYear,string newDepart,string newSuperVisor, float newPayInc,int newYears)
+: employee(newName,newID,newAge,newPhoneNum,newGender,newJob,newSalary,newMonth,newDay,newYear)
 {
-    employee(newName,newID,newAge,newPhoneNum,newGender,newJob,newSalary,newDate);
     departNum = newDepart;
     superVisor = newSuperVisor;
     percentInc = newPayInc;
     yearsOfExp = newYears;
+    
 }
-void testFunction(softwareArch Person)
+void testSoft(softwareArch& Person)
 {
     cout << "\nThis function is going to test the before and after of all member functions." << endl;
     cout << "**************************************************" << endl;

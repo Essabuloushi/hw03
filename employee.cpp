@@ -28,9 +28,11 @@ void employee::setSalary(string newSalary)
 {
     salary = newSalary;
 }
-void employee::setDate(date newDate)
+void employee::setDate(string newMonth,string newDay,string newYear)
 {
-    hireDate = newDate;
+    hireDate.setMonth(newMonth);
+    hireDate.setDay(newDay);
+    hireDate.setYear(newYear);
 }
 //Accessors
 string employee::getName()const
@@ -130,7 +132,7 @@ void employee::setEmployeeInfo()
 
     cout << "\nInput Employee Hire Date: ";
     newHireDate.setHireDate();
-    setDate(newHireDate);
+    setDate(newHireDate.getMonth(),newHireDate.getDay(),newHireDate.getYear());
     //cin.ignore(1000,'\n');
     cout << endl;
 
@@ -147,7 +149,7 @@ void employee::printInfo()
     cout << "Employee Hire Date: ";
     hireDate.printHireDate();
 }
-void testFunction(employee Person)
+void testFunction(employee& Person)
 {
     cout << "\nThis function is going to test the before and after of all member functions." << endl;
     cout << "**************************************************" << endl;
@@ -162,7 +164,7 @@ void testFunction(employee Person)
     cout << endl;
 
 }
-employee::employee(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, date newDate)
+employee::employee(string newName, string newID, string newAge, string newPhoneNum, string newGender, string newJob, string newSalary, string newMonth,string newDay, string newYear):hireDate(newMonth,newDay,newYear)
 {
     name = newName;
     ID = newID;
@@ -171,5 +173,5 @@ employee::employee(string newName, string newID, string newAge, string newPhoneN
     gender = newGender;
     job = newJob;
     salary = newSalary;
-    hireDate = newDate;
+    
 }

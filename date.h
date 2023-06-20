@@ -3,7 +3,7 @@
 #include <string>
 #pragma once
 using namespace std;
-
+//Composition class
 class date
 {
     private:
@@ -12,10 +12,12 @@ class date
     string year;
 
     public:
+    //Mutators
     void setMonth(string newMonth);
     void setDay(string setDay);
     void setYear(string setYear);
 
+    //Accessors
     string getMonth()const;
     string getDay()const;
     string getYear()const;
@@ -24,5 +26,7 @@ class date
     void setHireDate();
     void printHireDate();
 
-    date();
+    //Default constructor and constructor that passes all variables
+    date(); 
+    date(string,string,string);
 };
